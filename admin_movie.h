@@ -11,5 +11,7 @@ typedef struct node
 	node * next;
 } movie;
 
+movie * Head = NULL;
+
 void Insert();
 void PrintMovie();
