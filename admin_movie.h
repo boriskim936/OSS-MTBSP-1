@@ -1,15 +1,12 @@
 #pragma once
 
-typedef struct node
-{
+typedef struct node{
 	char name[100];
-	char start[20];
-	int time;
+	char start[30];
 	int floor;
 	int sit[2];
-
-	node * next;
-} movie;
+	struct node *next;
+}movie;
 
 movie * Head = NULL;
 
