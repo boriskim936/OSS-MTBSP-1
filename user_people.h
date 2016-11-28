@@ -20,7 +20,7 @@ void main()//회원,비회원모드 인원수받아넣기
 
 	FILE *fpout; //파일 포인터 변수선언
 
-	fpout = fopen("data.txt", "w"); //텍스트파일을 쓰기전용으로 열기
+	fpout = fopen("admin_payment.h", "w"); //텍스트파일을 쓰기전용으로 열기
 
 	if (fpout == NULL) //파일이 없을경우
 	{
@@ -68,7 +68,7 @@ void print_buy() //파일이 출력안됨 고쳐야함(파일출력함수)
 	int i = 0;
 	FILE *fpin = NULL;
 	buy adult_n, teen_n, senior_n, child_n;
-	fpin = fopen("data.txt", "r");
+	fpin = fopen("admin_payment.h", "r");
 
 	fscanf(fpin, "%d", &count);
 
