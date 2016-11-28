@@ -12,3 +12,4 @@ typedef struct node{
 
 movie* Insert();
 void PrintMovie(movie* head);
+void UserPrint();
