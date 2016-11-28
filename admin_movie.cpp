@@ -105,3 +105,38 @@ void PrintMovie(movie * head)
 	}
 	return;
 }
+
+void UserPrint()
+{
+	movie * Head = NULL;
+	FILE *fp;
+	movie * tmp = NULL, * t=NULL;
+
+	if ((fp = fopen("MovieData.txt", "r")) == NULL)
+	{
+		printf("Can't open file data.txt");
+		exit(-1);
+	}
+	t = Head;
+	while (!feof(fp))
+	{
+		tmp = (movie *)malloc(sizeof(movie));
+		fscanf(fp, "%s\t%s\t%d\t%d\t%d\t%d\n", tmp->name, tmp->start, &tmp->floor, &tmp->sit[0], &tmp->sit[1]);
+		/*fgets(tmp->name, 100, fp);
+		fgets(tmp->start, 30, fp);
+		fscanf(fp, "%d %d %d\n", &tmp->floor, &tmp->sit[0], &tmp->sit[1]);*/
+		tmp->next = t;
+		t = tmp;
+	}
+	Head = t;
+	tmp = Head;
+
+	while(1)
+	{
+		if(tmp == NULL)
+			break;
+		printf("영화 제목 : %s\n영화 시간 : %s\n상영관 : %d관\n", tmp->name, tmp->start, tmp->floor);
+		tmp = tmp->next;
+	}
+	return;
+}
