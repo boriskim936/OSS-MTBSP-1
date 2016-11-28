@@ -2,10 +2,11 @@
 #include<string.h>
 #include<Windows.h>
 #include<malloc.h>
-#include"movie.h"
+#include"admin_movie.h"
 
-void Insert()
+movie* Insert()
 {
+	movie * Head = NULL;
 	FILE *fp;
 	movie * tmp = NULL, * t=NULL;
 
@@ -15,14 +16,17 @@ void Insert()
 		exit(-1);
 	}
 	t = Head;
-	tmp = t;
 	while (!feof(fp))
 	{
 		tmp = (movie *)malloc(sizeof(movie));
-		fscanf(fp, "%s %s %d %d %d %d\n", tmp->name, tmp->start, &tmp->floor, &tmp->sit[0], &tmp->sit[1]);
-		tmp->next = NULL;
-		tmp = tmp->next;
+		fscanf(fp, "%s\t%s\t%d\t%d\t%d\t%d\n", tmp->name, tmp->start, &tmp->floor, &tmp->sit[0], &tmp->sit[1]);
+		/*fgets(tmp->name, 100, fp);
+		fgets(tmp->start, 30, fp);
+		fscanf(fp, "%d %d %d\n", &tmp->floor, &tmp->sit[0], &tmp->sit[1]);*/
+		tmp->next = t;
+		t = tmp;
 	}
+	Head = t;
 
 	tmp = (movie *)malloc(sizeof(movie));
 	tmp->next = NULL;
@@ -37,27 +41,60 @@ void Insert()
 	scanf("%d %d", &tmp->sit[0], &tmp->sit[1]);
 
 	if(Head == NULL)
-	{
+	{	
 		Head = tmp;
-		return;
+		if ((fp = fopen("MovieData.txt", "w")) == NULL)
+		{
+			printf("Can't open file data.txt");
+			exit(-1);
+		}
+		tmp = Head;
+		while (1)
+		{
+			if(tmp == NULL)
+				break;
+			fprintf(fp, "%s\t%s\t%d\t%d\t%d\t%d\n", tmp->name, tmp->start, tmp->floor, tmp->sit[0], tmp->sit[1]);
+			/*fputs(tmp->name, fp);
+			fputs(tmp->start, fp);
+			fprintf(fp, "%d %d %d\n", tmp->floor, tmp->sit[0], tmp->sit[1]);*/
+			tmp = tmp->next;
+		}
+		return Head;
 	}
 	t = Head;
 	while(1)
 	{
-		if(t == NULL)
+		if(t->next == NULL)
 			break;
 		t = t->next;
-	}
+ 	}
 
-	t = tmp;
-	return;
+	t->next = tmp;
+
+	if ((fp = fopen("MovieData.txt", "w")) == NULL)
+	{
+		printf("Can't open file data.txt");
+		exit(-1);
+	}
+	tmp = Head;
+	while (1)
+	{
+		if(tmp == NULL)
+			break;
+		fprintf(fp, "%s\t%s\t%d\t%d\t%d\t%d\n", tmp->name, tmp->start, tmp->floor, tmp->sit[0], tmp->sit[1]);
+		/*fputs(tmp->name, fp);
+		fputs(tmp->start, fp);
+		fprintf(fp, "%d %d %d\n", tmp->floor, tmp->sit[0], tmp->sit[1]);*/
+		tmp = tmp->next;
+	}
+	return Head;
 }
 
-void PrintMovie()
+void PrintMovie(movie * head)
 {
 	movie * tmp = NULL;
 
-	tmp = Head;
+	tmp = head;
 
 	while(1)
 	{
