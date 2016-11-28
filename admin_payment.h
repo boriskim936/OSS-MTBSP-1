@@ -19,7 +19,7 @@ void print_setting();
 
       FILE *fpout; //파일 포인터 변수선언
 
-      fpout = fopen("data.txt", "w"); //텍스트파일을 쓰기전용으로 열기
+      fpout = fopen("payment_data.txt", "w"); //텍스트파일을 쓰기전용으로 열기
 
       if (fpout == NULL) //파일이 없을경우
       {
@@ -57,7 +57,7 @@ void print_setting() //파일이 띄어쓰기없이 저장되어 이어서 출�
 {
    FILE *fpin = NULL;
    setting adult_m1, teen_m1, senior_m1, child_m1;
-   fpin = fopen("data.txt", "r");
+   fpin = fopen("payment_data.txt", "r");
 
    while (!feof(fpin))
    {
