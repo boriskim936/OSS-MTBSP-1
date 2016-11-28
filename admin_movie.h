@@ -1,13 +1,15 @@
 #pragma once
 
-typedef struct node
-{
+#include<stdio.h>
+
+typedef struct node{
 	char name[100];
-	char time[50];
+	char start[30];
 	int floor;
+	int sit[2];
+	struct node *next;
+}movie;
 
-	node * next;
-} movie;
-
-void Insert();
-void PrintMovie();
+movie* Insert();
+void PrintMovie(movie* head);
+void UserPrint();
