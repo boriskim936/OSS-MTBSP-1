@@ -1,5 +1,7 @@
 #pragma once
 
+#include<stdio.h>
+
 typedef struct node{
 	char name[100];
 	char start[30];
@@ -8,7 +10,5 @@ typedef struct node{
 	struct node *next;
 }movie;
 
-movie * Head = NULL;
-
-void Insert();
-void PrintMovie();
+movie* Insert();
+void PrintMovie(movie* head);
