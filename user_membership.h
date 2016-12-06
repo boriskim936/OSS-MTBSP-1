@@ -4,16 +4,6 @@
 #include "loop_free.h"
 #pragma warning(disable:4996)
 
-//typedef struct userInformation {
-//	char id[20];
-//	char password[16];
-//	char name[20];
-//	char phone[20];
-//	char userNumber[20];
-//	struct userInformation *next;
-//}UI;
-//UI *head;
-//UI *tail;
 
 UI *Membership(UI *head, UI *tail);
 void loop_free(UI *head);
@@ -56,13 +46,3 @@ void membership()
 		fclose(fp_out);
 	}
 	return;
-}
-//void loop_free(UI *head) {
-//	UI *temp, *current;
-//	for (temp = head; temp != NULL; temp = current)
-//	{
-//		current = temp->next;
-//		free(temp);
-//	}
-//
-//}
