@@ -9,6 +9,8 @@ movie* Insert()
 	movie * Head = NULL;
 	FILE *fp;
 	movie * tmp = NULL, * t=NULL;
+	int num = 9;
+	char ask;
 
 	if ((fp = fopen("MovieData.txt", "r")) == NULL)
 	{
@@ -33,15 +35,80 @@ movie* Insert()
 
 	printf("영화 제목 입력 : ");
 	gets(tmp->name);
-	printf("영화 시작 시간 입력 (ex ) 9 : 00 ~ 12 : 00) : " );
-	gets(tmp->start);
+	printf("영화 시작 시간 입력" );
+	while(1)
+	{
+		if(num == 9)
+		{
+			SetColor(7,0);
+			printf("09 : 00 ~ 11 : 00");
+			SetColor(0,7);
+		}
+		else
+			printf("09 : 00 ~ 11 : 00");
+		if(num == 11)
+		{
+			SetColor(7,0);
+			printf("11 : 00 ~ 13 : 00");
+			SetColor(0,7);
+		}
+		else
+			printf("11 : 00 ~ 13 : 00");
+		if(num == 13)
+		{
+			SetColor(7,0);
+			printf("13 : 00 ~ 15 : 00");
+			SetColor(0,7);
+		}
+		else
+			printf("13 : 00 ~ 15 : 00");
+		if(num == 15)
+		{
+			SetColor(7,0);
+			printf("15 : 00 ~ 17 : 00");
+			SetColor(0,7);
+		}
+		else
+			printf("15 : 00 ~ 17 : 00");
+		if(num == 17)
+		{
+			SetColor(7,0);
+			printf("17 : 00 ~ 19 : 00");
+			SetColor(0,7);
+		}
+		else
+			printf("17 : 00 ~ 19 : 00");
+		if(num == 19)
+		{
+			SetColor(7,0);
+			printf("19 : 00 ~ 21 : 00");
+			SetColor(0,7);
+		}
+		else
+			printf("19 : 00 ~ 21 : 00");
+		ask = getch();
+		if(ask == ' ')
+			break;
+		switch(ask)
+		{
+		case 72:
+			if(num > 9)
+				num -= 2;
+			break;
+		case 80:
+			if(num < 19)
+				num += 2;
+			break;
+		}
+	}
+
 	printf("영화 상영관 입력 : ");
 	scanf("%d", &tmp->floor);
 	printf("영화 좌석 수 입력(ex ) 10(x길이) 5(y길이)) : ");
 	scanf("%d %d", &tmp->sit[0], &tmp->sit[1]);
 
 	if(Head == NULL)
-	{	
+	{
 		Head = tmp;
 		if ((fp = fopen("MovieData.txt", "w")) == NULL)
 		{
