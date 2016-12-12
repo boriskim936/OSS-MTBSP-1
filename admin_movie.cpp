@@ -207,3 +207,112 @@ void UserPrint()
 	}
 	return;
 }
+
+movie *admin_movie_insert1(movie *insert1_current)
+{
+	/*int i, x, y, z, j;*/
+	//movie * head = NULL, * temp = NULL;
+	//head = (movie*)malloc(sizeof(movie));
+	//temp = head;
+	fflush(stdin);
+	printf("\n영화관 입력\n\n");
+	fflush(stdin);
+	scanf("%s", insert1_current->movie_number);
+	printf("\n영화명 입력\n\n");
+	fflush(stdin);
+	scanf("%s", insert1_current->movie_name);
+	system("cls");
+	//printf("영화 자리설정\n");
+	//fflush(stdin);
+	//scanf("%d %d", &x, &y);
+	//z = x*y;
+	//for (i = z; i <= 100; i++)
+	//{
+	//	temp->movie2->seat[i] = 1;
+	//}
+	//printf("영화 시간설정\n");
+	//fflush(stdin);
+	//scanf("%s",temp->movie2->time);
+	//printf("%s %s %s\n", temp->movie_number, temp->movie_name, temp->movie2->time);
+
+	//for (i = 0; i < x; i++)
+	//{
+	//	for (j = 0; j < y; j++)
+	//	{
+	//		printf("□");
+	//	}
+	//	printf("\n");
+	//}
+
+
+	return insert1_current;
+}
+
+movie *admin_movie_insert2(movie *insert2_current)
+{
+	int i, z, j, x, y;
+	int k = 0;
+	printf("\n영화 시간설정\n\n");
+	fflush(stdin);
+	scanf("%s", insert2_current->movie2[0].time);
+	printf("\n영화 자리설정\n\n");
+	fflush(stdin);
+	scanf("%d %d", &insert2_current->movie2[0].height, &insert2_current->movie2[0].width);
+	system("cls");
+	z = (int)(insert2_current->movie2[0].height) *(insert2_current->movie2[0].width);
+	//for (i = 0; i < z; i++)
+	//{
+	//	insert2_current->movie2->seat[i] = 0;
+	//}
+	//for (i = 0; i < insert2_current->movie2->height; i++)
+	//{
+	//	for (j = 0; j < insert2_current->movie2->width; j++)
+	//	{
+	//		printf("             ");
+	//		printf("□");
+	//	}
+	//	printf("\n");
+	//}
+	//insert2_current->count[0] = 0; //수정요망
+	//if (insert2_current->count[k] != 1)
+	//{
+	//	insert2_current->count[k] = 1;
+	//	printf("영화 시간설정\n");
+	//	fflush(stdin);
+	//	scanf("%s", insert2_current->movie2[k].time);
+	//	printf("영화 자리설정\n");
+	//	fflush(stdin);
+	//	scanf("%d %d", insert2_current->movie2[k].height, insert2_current->movie2[k].width);
+	//	z = insert2_current->movie2[k].height*insert2_current->movie2[k].width;
+	//	for (i = 0; i <= z; i++)
+	//	{
+	//		insert2_current->movie2[k].seat[i] = 0;
+	//	}
+	//}
+	//while (insert2_current->count[k] != 1)
+	//{
+	//	k++;
+	//}
+	//insert2_current->count[k] = 1;
+	//printf("영화 시간설정\n");
+	//fflush(stdin);
+	//scanf("%s", insert2_current->movie2[k].time);
+	//printf("영화 자리설정\n");
+	//fflush(stdin);
+	//scanf("%d %d", insert2_current->movie2[k].height, insert2_current->movie2[k].width);
+	//z = insert2_current->movie2[k].height*insert2_current->movie2[k].width;
+	//for (i = 0; i <= z; i++)
+	//{
+	//	insert2_current->movie2[k].seat[i] = 0;
+	//}
+	//
+	//printf("%s %s %s\n", insert2_current->movie_number, insert2_current->movie_name, insert2_current->movie2->time);
+	//for (i = 0; i < insert2_current->movie2[k].height; i++)
+	//{
+	//	for (j = 0; j < insert2_current->movie2[k].width; j++)
+	//	{
+	//		printf("□");
+	//	}
+	//	printf("\n");
+	//}
+	return insert2_current;
