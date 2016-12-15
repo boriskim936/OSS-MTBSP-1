@@ -247,6 +247,72 @@ movie *admin_movie_insert1(movie *insert1_current)
 
 	return insert1_current;
 }
+void SetColor(int bcolor, int tcolor) //폰트변경 함수 http://y216100.blog.me/220269364090참조
+{
+	HANDLE hcon;
+
+	hcon = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hcon, (bcolor << 4) | tcolor);
+}
+void print()
+{
+	int i;
+	system("cls");
+	gotoxy(0, 0);
+	for(i = 0; i<X; i++)
+	{
+		if(i == 0)
+			printf("┏");
+		else if(i == X-1)
+			printf("┓");
+		else
+			printf("━");
+	}
+	for(i = 1; i<Y-1; i++)
+	{
+		gotoxy(0, i);
+		printf("┃");
+		gotoxy((X-1)*2, i);
+		printf("┃");
+	}
+	gotoxy(0, Y-1);
+	for(i = 0; i<X; i++)
+	{
+		if(i == 0)
+			printf("┗");
+		else if(i == X-1)
+			printf("┛");
+		else
+			printf("━");
+	}
+}
+
+void gotoxy(int x, int y) // 파라미터의 위치에 커서 지정함수 -유형철
+{
+	COORD CursorPosition = { x, y };
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), CursorPosition);
+}
+
+void setcursortype(CURSOR_TYPE c)//파라미터에 따라 커서 변경함수 -유형철
+{
+	CONSOLE_CURSOR_INFO CurInfo;
+	switch (c)
+	{
+	case NOCURSOR:
+		CurInfo.dwSize = 1;
+		CurInfo.bVisible = FALSE;
+		break;
+	case SOLIDCURSOR:
+		CurInfo.dwSize = 100;
+		CurInfo.bVisible = TRUE;
+		break;
+	case NORMALCURSOR:
+		CurInfo.dwSize = 20;
+		CurInfo.bVisible = TRUE;
+		break;
+	}
+	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &CurInfo);
+}
 
 movie *admin_movie_insert2(movie *insert2_current)
 {
