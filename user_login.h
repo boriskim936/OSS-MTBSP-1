@@ -31,9 +31,9 @@ void login_member()
 	head = (UI*)malloc(sizeof(UI));
 	head->next = NULL;
 	temp = head;
-	printf("¾ÆÀÌµð:");
+	printf("ï¿½ï¿½ï¿½Ìµï¿½:");
 	scanf("%s", &cid);
-	printf("ºñ¹Ð¹øÈ£:");
+	printf("ï¿½ï¿½ï¿½Ð¹ï¿½È£:");
 	scanf("%s", &cpassword);
 
 	while (!feof(fp_in))
@@ -41,14 +41,14 @@ void login_member()
 		fscanf(fp_in, "%s %s %s %s %s\n", temp->id, temp->password, temp->name, temp->phone, temp->userNumber);
 		if (strcmp(temp->id, cid) == 0 && strcmp(temp->password, cpassword) == 0)
 		{
-			printf("·Î±×ÀÎ µÇ¼Ì½À´Ï´Ù.");
+			printf("ï¿½Î±ï¿½ï¿½ï¿½ ï¿½Ç¼Ì½ï¿½ï¿½Ï´ï¿½.");
 			return;
 		}
 		else
 			temp->next = (UI*)malloc(sizeof(UI));
 		temp = temp->next;
 	}
-	printf("¾ÆÀÌµð¿Í ÆÐ½º¿öµå°¡ ¾ø°Å³ª Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù.");
+	printf("ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ï¿½å°¡ ï¿½ï¿½ï¿½Å³ï¿½ ï¿½ß¸ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼Ì½ï¿½ï¿½Ï´ï¿½.");
 	return;
 }
 void login_nonmember()
@@ -57,9 +57,9 @@ void login_nonmember()
 	FILE *fp_out1, *fp_out2;
 	fp_out1 = fopen("user_nonmember_data.txt", "a");
 	fp_out2 = fopen("user_data.txt", "a");
-	printf("ÀÌ¸§:");
+	printf("ï¿½Ì¸ï¿½:");
 	scanf("%s", &id);
-	printf("ÇÚµåÆù ¹øÈ£:");
+	printf("ï¿½Úµï¿½ï¿½ï¿½ ï¿½ï¿½È£:");
 	scanf("%s", &phone);
 	fprintf(fp_out1, "%s %s", id, phone);
 	fprintf(fp_out2, "%s",id);
