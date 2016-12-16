@@ -17,6 +17,8 @@ void main()
 {
 	movie * movie_head = NULL, *movie_temp = NULL, *insert1_current = NULL, *insert2_current = NULL;
 
+
+
 	int go, i;
 
 	int z = 1;
